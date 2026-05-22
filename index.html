@@ -13,8 +13,8 @@
     :root {
       --ivory:      #FAF8F4;
       --cream:      #F2EDE5;
-      --charcoal:   #1A1715;     /* Darkened for better contrast */
-      --warm-mid:   #4A4139;     /* Darkened significantly for readability */
+      --charcoal:   #1A1715;     
+      --warm-mid:   #4A4139;     
       --gold:       #B89A6E;
       --gold-light: #D4BC96;
       --border:     rgba(184,154,110,0.4);
@@ -33,7 +33,7 @@
       background: var(--ivory);
       color: var(--charcoal);
       font-family: var(--ff-serif);
-      font-weight: 400; /* Increased from 300 for better visibility */
+      font-weight: 400; 
       line-height: 1.8;
       overflow-x: hidden;
     }
@@ -150,6 +150,7 @@
       background: var(--ivory);
       border-bottom: 1px solid var(--border);
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
       gap: 3.5rem;
@@ -173,7 +174,6 @@
     nav a:hover {
       color: var(--gold);
     }
-    /* Active Link Class applied via Javascript */
     nav a.active-link {
       color: var(--gold);
       text-decoration-color: var(--gold);
@@ -189,20 +189,8 @@
       margin: 0 auto;
     }
 
-    .section-label {
-      font-family: var(--ff-sans);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-      text-align: center;
-      margin-bottom: 0.7rem;
-    }
-
     .section-title {
-      font-family: var(--ff-serif); /* Changed from Script to Serif */
+      font-family: var(--ff-serif); 
       font-weight: 400;
       font-size: clamp(2.5rem, 5vw, 3.5rem);
       letter-spacing: 0.05em;
@@ -248,7 +236,7 @@
     }
 
     .landing-headline {
-      font-family: var(--ff-serif); /* Strict Serif Application */
+      font-family: var(--ff-serif);
       font-weight: 400;
       font-size: clamp(2.5rem, 6vw, 3.5rem);
       color: var(--charcoal);
@@ -341,6 +329,15 @@
       color: var(--warm-mid);
     }
 
+    .no-kids-notice {
+      text-align: center;
+      font-family: var(--ff-serif);
+      font-size: 1.2rem;
+      color: var(--charcoal);
+      margin-top: 3.5rem;
+      font-style: italic;
+    }
+
     /* ─── RSVP SECTION ─── */
     #rsvp {
       background: var(--ivory);
@@ -357,7 +354,6 @@
 
     .rsvp-embed-container {
       width: 100%;
-      /* Match the Google Form's native aspect ratio (914px tall at 640px wide) */
       aspect-ratio: 640 / 914;
       max-width: 640px;
       margin: 0 auto;
@@ -369,13 +365,6 @@
       height: 100%;
       border: none;
       display: block;
-    }
-
-    @media (max-width: 680px) {
-      .rsvp-embed-container {
-        max-width: 100%;
-        aspect-ratio: 640 / 914;
-      }
     }
 
     /* ─── MAP SECTION ─── */
@@ -461,6 +450,90 @@
     }
     .map-link:hover { color: var(--charcoal); border-color: var(--charcoal); }
 
+    /* ─── PARKING SECTION ─── */
+    #parking {
+      background: var(--ivory);
+    }
+
+    .parking-text {
+      text-align: center;
+      font-family: var(--ff-serif);
+      font-size: 1.2rem;
+      color: var(--charcoal);
+      margin-bottom: 2.5rem;
+      font-style: italic;
+    }
+
+    /* ─── REGISTRY SECTION ─── */
+    #registry {
+      background: var(--cream);
+    }
+
+    .registry-text {
+      text-align: center;
+      font-family: var(--ff-serif);
+      font-size: 1.15rem;
+      color: var(--warm-mid);
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      line-height: 1.8;
+    }
+
+    .registry-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .registry-card {
+      background: var(--ivory);
+      padding: 2.5rem 2rem;
+      border: 1px solid var(--border);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+
+    /* Zelle specific styling */
+    .zelle-qr-link {
+      display: block;
+      max-width: 200px;
+      margin: 1.5rem auto 0;
+      transition: transform 0.2s ease;
+    }
+    .zelle-qr-link:hover {
+      transform: scale(1.03);
+    }
+    .zelle-qr-link img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      mix-blend-mode: multiply; 
+    }
+
+    /* Amazon Button styling */
+    .registry-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: #FFFFFF;
+      font-family: var(--ff-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 2px;
+      margin-top: 1rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .registry-btn:hover {
+      background: var(--charcoal);
+      transform: translateY(-2px);
+      color: #FFFFFF;
+    }
+
     /* ─── FOOTER ─── */
     footer {
       background: var(--charcoal);
@@ -511,14 +584,21 @@
         border-left: none;
         border-top: 1px solid var(--border);
       }
+      .registry-grid {
+        grid-template-columns: 1fr;
+      }
       nav { gap: 2rem; }
     }
 
     @media (max-width: 480px) {
-      nav { gap: 1.4rem; }
+      nav { gap: 1rem; }
       .section { padding: 5rem 1.2rem; }
       .rsvp-placeholder { padding: 2.5rem 1.5rem; }
       .map-details { padding: 2rem 1.5rem; }
+      .rsvp-embed-container {
+        max-width: 100%;
+        aspect-ratio: 640 / 914;
+      }
     }
   </style>
 </head>
@@ -541,6 +621,8 @@
     <a href="#landing-info">Info</a>
     <a href="#rsvp">RSVP</a>
     <a href="#map">Map</a>
+    <a href="#parking">Parking</a>
+    <a href="#registry">Registry</a>
   </nav>
 
   <section id="landing-info" class="section">
@@ -585,7 +667,7 @@
           </div>
           <div class="schedule-item">
             <span class="schedule-time">5:00 – 6:00 pm</span>
-            <span class="schedule-event">Cocktail Hour — Fairview Patio</span>
+            <span class="schedule-event">Mocktail Hour — Fairview Patio</span>
           </div>
           <div class="schedule-item">
             <span class="schedule-time">6:00 – 11:00 pm</span>
@@ -600,10 +682,14 @@
             Semi-formal attire.
           </p>
           <p>
-            Please don’t wear white, red, or gold, and no jeans/khakis, as requested by the bride and groom.
+            Don’t wear white, red, or gold, and no jeans/khakis, as requested by the bride and groom.
           </p>
         </div>
       </div>
+
+      <p class="no-kids-notice reveal">
+        This is a no kids event unless personally invited by the bride or groom.
+      </p>
 
     </div>
   </section>
@@ -658,7 +744,7 @@
           <div class="map-details-block">
             <span>Ceremony & Reception</span>
             <p>
-              Ceremony & Cocktail Hour<br>
+              Ceremony & Mocktail Hour<br>
               Fairview Patio<br><br>
               Reception<br>
               Fairview Ballroom
@@ -679,6 +765,74 @@
             </a>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="parking" class="section">
+    <div class="section-inner" style="max-width: 1020px;">
+      <h2 class="section-title reveal">Parking</h2>
+      <div class="divider reveal"><span class="divider-icon">✦</span></div>
+      
+      <p class="parking-text reveal">
+        Park anywhere in the yellow highlighted areas on the map below.
+      </p>
+
+      <div class="map-frame-wrap reveal" style="border: 1px solid var(--border); min-height: 480px;">
+        <iframe
+          title="Parking Map"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/d/embed?mid=1z_lJae11e0aBqErYSEwKwwgEn3Ym5hg"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="registry" class="section">
+    <div class="section-inner" style="max-width: 1020px;">
+      <h2 class="section-title reveal">Registry</h2>
+      <div class="divider reveal"><span class="divider-icon">✦</span></div>
+
+      <p class="registry-text reveal">
+        Your love and support mean the world to us. If you’d like to celebrate with a gift, we’ve created a registry with items for our home and future together.
+      </p>
+
+      <div class="registry-grid reveal">
+        
+        <div class="registry-card">
+          <span class="info-card-icon">Zelle</span>
+          <h3 style="font-family: var(--ff-serif); font-size: 1.6rem; font-weight: 500; color: var(--charcoal); margin-bottom: 1.2rem;">Direct Transfer</h3>
+          
+          <p style="font-family: var(--ff-sans); font-size: 1rem; color: var(--warm-mid); margin-bottom: 0.5rem; letter-spacing: 0.05em;">
+            <strong>Phone:</strong> 571-599-0818
+          </p>
+          <p style="font-family: var(--ff-sans); font-size: 1rem; color: var(--warm-mid); letter-spacing: 0.05em;">
+            <strong>Email:</strong> elaynaee@gmail.com
+          </p>
+          
+          <a href="https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiRUxBWU5BIiwidG9rZW4iOiJlbGF5bmFlZUBnbWFpbC5jb20ifQ==" target="_blank" rel="noopener" class="zelle-qr-link" aria-label="Pay with Zelle">
+            <img src="https://quickchart.io/qr?text=https%3A%2F%2Fenroll.zellepay.com%2Fqr-codes%3Fdata%3DeyJuYW1lIjoiRUxBWU5BIiwidG9rZW4iOiJlbGF5bmFlZUBnbWFpbC5jb20ifQ%3D%3D&size=200" alt="Zelle QR Code for Elayna">
+          </a>
+          <p style="font-family: var(--ff-sans); font-size: 0.75rem; font-weight: 500; color: var(--warm-mid); margin-top: 1.2rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.7;">
+            Tap QR code on mobile or scan from desktop
+          </p>
+        </div>
+
+        <div class="registry-card" style="justify-content: center; align-items: center;">
+          <span class="info-card-icon">Amazon</span>
+          <h3 style="font-family: var(--ff-serif); font-size: 1.6rem; font-weight: 500; color: var(--charcoal); margin-bottom: 1rem;">Amazon Registry</h3>
+          
+          <p style="font-family: var(--ff-serif); font-size: 1.15rem; color: var(--warm-mid); margin-bottom: 2rem;">
+            Browse our wish list for our future home together.
+          </p>
+          
+          <a href="https://www.amazon.com/wedding/guest-view/244YOGMIVYALH" target="_blank" rel="noopener" class="registry-btn">
+            View Registry ↗
+          </a>
+        </div>
+
       </div>
     </div>
   </section>
